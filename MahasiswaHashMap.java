@@ -22,16 +22,47 @@ public class MahasiswaHashMap {
         System.out.println(nilai_tugas);
 
         //3. Menghitung Rata-Rata
-        HashMap<String, Double> rata_rata = new HashMap<>();
-        for (String nim : nilai_tugas.keySet()) {
-           ArrayList<Double> list_nilai = nilai_tugas.get(nim);
-           double total = 0;
-           for (double n : list_nilai){
-            total +=n;
-           }
-           double rata = total / list_nilai.size();
-           rata_rata.put(nim, rata);
+        ArrayList<Double> tes = new ArrayList<>();
+        double jumlah = 0.0;
+        double mean = 0.0;
+         tes = nilai_tugas.get("12345");    
+        for (int i = 0; i < tes.size(); i++) {
+            jumlah+= tes.get(i);
         }
-        System.out.println(rata_rata);
+        mean = jumlah / tes.size();
+        System.out.println(mean);
+
+        //4. HashMap untuk menyimpan nilai uts terdiri dari nim (String) dan nilai_uts (Double).
+        HashMap<String, Double> nilai_uts = new HashMap<>();
+        nilai_uts.put("12345", 85.0);
+        System.out.println("Nilai UTS: " + nilai_uts);
+
+        //5. HashMap untuk menyimpan nilai uas terdiri dari nim (String) dan nilai_uas (Double).
+        HashMap<String, Double> nilai_uas = new HashMap<>();
+        nilai_uas.put("12345", 80.0);
+        System.out.println("Nilai UAS: " + nilai_uas);
+
+        //6. HashMap untuk menyimpan nilai natakuliah yang terdiri dari nim bertipe String
+        // dan ArrayList bertipe Double. ArrayList ini berisi nilai rata_rata_tugas, nilai uts, dan
+        // nilai uas.
+        HashMap<String, ArrayList<Double>> nilai_akhir = new HashMap<>();
+        ArrayList<Double> nilai_final = new ArrayList<>();
+        nilai_final.add(mean);
+        nilai_final.add(nilai_uts.get("12345"));
+        nilai_final.add(nilai_uas.get("12345"));
+        nilai_akhir.put("12345", nilai_final);
+        System.out.println("Nilai Akhir: " + nilai_akhir);
+
+        //7. Nilai Rata-Rata Akhir
+        ArrayList<Double> nilaiakhir = new ArrayList<>();
+        double total = 0.0;
+        double rata_rata_akhir = 0.0;
+        nilaiakhir = nilai_akhir.get("12345");
+        for (int i = 0; i < nilaiakhir.size(); i++) {
+            total+= nilaiakhir.get(i);
+        }
+        rata_rata_akhir = total / nilaiakhir.size();
+        System.out.println("Rata-Rata Akhir: " + rata_rata_akhir);
+
     }
 }
