@@ -73,7 +73,7 @@ public class UserManager {
         }
     }
 
-    boolean validateLogin(String username, String password) {
+    boolean validateLogin(String username, char[] password) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
