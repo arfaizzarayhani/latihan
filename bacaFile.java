@@ -6,7 +6,7 @@ public class bacaFile {
 
     public static void loadFromFile(String filename) {
         try {
-            BufferedReader br = new BufferedReader(new FileReader("src/latihan/" + filename));
+            BufferedReader br = new BufferedReader(new FileReader(filename));
 
             int n = Integer.parseInt(br.readLine().trim());
 

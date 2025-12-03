@@ -10,14 +10,14 @@ public class TSPBruteForceUAS {
 
     public static void main(String[] args) {
 
-        // --- BACA FILE ---
-        loadFromFile("graf.txt");  // data akan masuk ke vertices[] dan w[][]
+        loadFromFile("graf.txt");
 
-        // Buat daftar permutasi dari 1..n-1 (karena start selalu index 0 = 'a')
         int[] arr = new int[vertices.length - 1];
         for (int i = 1; i < vertices.length; i++) arr[i - 1] = i;
 
         List<int[]> permutations = generatePermutations(arr);
+
+        long startTime = System.nanoTime();
 
         int bestWeight = Integer.MAX_VALUE;
         List<String> bestRoutes = new ArrayList<>();
@@ -54,9 +54,12 @@ public class TSPBruteForceUAS {
         for (String r : bestRoutes) System.out.println(r);
 
         System.out.println("Bobot minimum = " + bestWeight);
+
+        long endTime = System.nanoTime();
+        double durationMs = (endTime - startTime) / 1_000_000.0;
+        System.out.printf("Waktu pencarian rute tercepat: %.3f ms%n", durationMs);
     }
 
-    // ---------------------- PERMUTASI ------------------------
     static List<int[]> generatePermutations(int[] arr) {
         List<int[]> result = new ArrayList<>();
         permute(arr, 0, result);
