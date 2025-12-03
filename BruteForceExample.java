@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class BruteForceExample {
 
-    public static String password = "ARFAIZZA";
+    public static String password = "NADIA";
     public static char[] charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
     private static char[] currentGuess;
 
